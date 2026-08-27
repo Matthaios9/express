@@ -1,9 +1,5 @@
 'use strict'
 
-/**
- * Module dependencies.
- */
-
 var escapeHtml = require('escape-html')
 var express = require('../../lib/express');
 
@@ -15,11 +11,9 @@ app.map = function(a, route){
   route = route || '';
   for (var key in a) {
     switch (typeof a[key]) {
-      // { '/path': { ... }}
       case 'object':
         app.map(a[key], route + key);
         break;
-      // get: function(){ ... }
       case 'function':
         if (verbose) console.log('%s %s', key, route);
         app[key](route, a[key]);
@@ -68,7 +62,6 @@ app.map({
   }
 });
 
-/* istanbul ignore next */
 if (!module.parent) {
   app.listen(3000);
   console.log('Express started on port 3000');

@@ -1,4 +1,3 @@
-
 var app = require('../../examples/error')
   , request = require('supertest');
 

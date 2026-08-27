@@ -9,7 +9,6 @@ describe('HEAD', function(){
     var app = express();
 
     app.get('/tobi', function(req, res){
-      // send() detects HEAD
       res.send('tobi');
     });
 
@@ -22,7 +21,6 @@ describe('HEAD', function(){
     var app = express();
 
     app.get('/tobi', function(req, res){
-      // send() detects HEAD
       res.send('tobi');
     });
 

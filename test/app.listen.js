@@ -30,14 +30,11 @@ describe('app.listen()', function(){
       const { address, port } = server.address();
       assert.strictEqual(address, '127.0.0.1');
       assert(Number.isInteger(port) && port > 0);
-      // backlog isn’t directly inspectable, but if no error was thrown
-      // we know it was accepted.
       server.close(done);
     });
   });
   it('accepts just a callback (no args)', function (done) {
     const app = express();
-    // same as app.listen(0, done)
     const server = app.listen();
     server.close(done);
   });

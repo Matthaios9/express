@@ -1,9 +1,5 @@
 'use strict'
 
-/**
- * Module dependencies.
- */
-
 var express = require('../../..');
 var fs = require('node:fs');
 var path = require('node:path');
@@ -23,16 +19,11 @@ module.exports = function(parent, options){
     var method;
     var url;
 
-    // allow specifying the view engine
     if (obj.engine) app.set('view engine', obj.engine);
     app.set('views', path.join(__dirname, '..', 'controllers', name, 'views'));
 
-    // generate routes based
-    // on the exported methods
     for (var key in obj) {
-      // "reserved" exports
       if (~['name', 'prefix', 'engine', 'before'].indexOf(key)) continue;
-      // route exports
       switch (key) {
         case 'show':
           method = 'get';
@@ -59,15 +50,12 @@ module.exports = function(parent, options){
           url = '/';
           break;
         default:
-          /* istanbul ignore next */
           throw new Error('unrecognized route: ' + name + '.' + key);
       }
 
-      // setup
       handler = obj[key];
       url = prefix + url;
 
-      // before middleware support
       if (obj.before) {
         app[method](url, obj.before, handler);
         verbose && console.log('     %s %s -> before -> %s', method.toUpperCase(), url, key);
@@ -77,7 +65,6 @@ module.exports = function(parent, options){
       }
     }
 
-    // mount the app
     parent.use(app);
   });
 };

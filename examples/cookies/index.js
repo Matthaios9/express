@@ -1,24 +1,14 @@
 'use strict'
 
-/**
- * Module dependencies.
- */
-
 var express = require('../../');
 var app = module.exports = express();
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 
-// custom log format
 if (process.env.NODE_ENV !== 'test') app.use(logger(':method :url'))
 
-// parses request cookies, populating
-// req.cookies and req.signedCookies
-// when the secret is passed, used
-// for signing the cookies.
 app.use(cookieParser('my secret here'));
 
-// parses x-www-form-urlencoded
 app.use(express.urlencoded())
 
 app.get('/', function(req, res){
@@ -46,7 +36,6 @@ app.post('/', function(req, res){
   res.redirect(req.get('Referrer') || '/');
 });
 
-/* istanbul ignore next */
 if (!module.parent) {
   app.listen(3000);
   console.log('Express started on port 3000');

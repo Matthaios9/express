@@ -102,10 +102,6 @@ describe('req', function(){
   })
 })
 
-/**
- * Get the local client address depending on AF_NET of server
- */
-
 function getExpectedClientAddress(server) {
   return server.address().address === '::'
     ? '::ffff:127.0.0.1'

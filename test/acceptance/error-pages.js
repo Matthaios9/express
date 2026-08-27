@@ -1,4 +1,3 @@
-
 var app = require('../../examples/error-pages')
   , request = require('supertest');
 
@@ -65,7 +64,6 @@ describe('error-pages', function(){
       })
     })
   })
-
 
   describe('Accept: text/plain',function(){
     describe('GET /403', function(){

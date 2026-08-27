@@ -32,7 +32,7 @@ describe('utils.normalizeType acceptParams method', () => {
     assert.deepEqual(result,{
       value: 'text/plain',
       quality: 1,
-      params: {} // No parameters are added since "invalid" has no "="
+      params: {}
     });
   });
 

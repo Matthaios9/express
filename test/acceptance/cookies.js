@@ -1,4 +1,3 @@
-
 var app = require('../../examples/cookies')
   , request = require('supertest');
 var utils = require('../support/utils');

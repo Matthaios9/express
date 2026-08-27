@@ -1,7 +1,5 @@
 'use strict'
 
-// faux database
-
 var pets = exports.pets = [];
 
 pets.push({ name: 'Tobi', id: 0 });

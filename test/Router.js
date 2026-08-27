@@ -89,7 +89,7 @@ describe('Router', function () {
   })
 
   it('should not stack overflow with many registered routes', function (done) {
-    this.timeout(5000) // long-running test
+    this.timeout(5000)
 
     var handler = function (req, res) { res.end(new Error('wrong handler')) };
     var router = new Router();
@@ -106,7 +106,7 @@ describe('Router', function () {
   });
 
   it('should not stack overflow with a large sync route stack', function (done) {
-    this.timeout(5000) // long-running test
+    this.timeout(5000)
 
     var router = new Router()
 
@@ -133,7 +133,7 @@ describe('Router', function () {
   })
 
   it('should not stack overflow with a large sync middleware stack', function (done) {
-    this.timeout(5000) // long-running test
+    this.timeout(5000)
 
     var router = new Router()
 
@@ -603,7 +603,6 @@ describe('Router', function () {
       var router = new Router();
       var sub = new Router();
       var cb = after(2, done)
-
 
       sub.get('/bar', function (req, res, next) {
         next();

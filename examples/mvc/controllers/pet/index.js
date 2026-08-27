@@ -1,9 +1,5 @@
 'use strict'
 
-/**
- * Module dependencies.
- */
-
 var db = require('../../db');
 
 exports.engine = 'ejs';

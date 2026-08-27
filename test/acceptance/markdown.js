@@ -1,4 +1,3 @@
-
 var app = require('../../examples/markdown')
 var request = require('supertest')
 

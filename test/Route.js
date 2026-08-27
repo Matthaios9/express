@@ -14,7 +14,7 @@ describe('Route', function(){
   })
 
   it('should not stack overflow with a large sync stack', function (done) {
-    this.timeout(5000) // long-running test
+    this.timeout(5000)
 
     var req = { method: 'GET', url: '/' }
     var route = new Route('/foo')
@@ -264,7 +264,6 @@ describe('Route', function(){
       var route = new Route('');
 
       route.all(function(err, req, res, next){
-        // this should not execute
         throw new Error('should not be called')
       });
 

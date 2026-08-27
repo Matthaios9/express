@@ -2,8 +2,6 @@
 
 module.exports = User;
 
-// faux model
-
 function User(name, age, species) {
   this.name = name;
   this.age = age;
@@ -11,9 +9,6 @@ function User(name, age, species) {
 }
 
 User.all = function(fn){
-  // process.nextTick makes sure this function API
-  // behaves in an asynchronous manner, like if it
-  // was a real DB query to read all users.
   process.nextTick(function(){
     fn(null, users);
   });
@@ -24,8 +19,6 @@ User.count = function(fn){
     fn(null, users.length);
   });
 };
-
-// faux database
 
 var users = [];
 

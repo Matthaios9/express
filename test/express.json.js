@@ -40,7 +40,6 @@ describe('express.json()', function () {
       .expect(200, '{}', done)
   })
 
-  // The old node error message modification in body parser is catching this
   it('should 400 when only whitespace', function (done) {
     request(createApp())
       .post('/')
@@ -53,7 +52,7 @@ describe('express.json()', function () {
     var app = express()
 
     app.use(function (req, res, next) {
-      req.headers['content-length'] = '20' // bad length
+      req.headers['content-length'] = '20'
       next()
     })
 
@@ -707,7 +706,6 @@ describe('express.json()', function () {
     })
 
     it('should 413 when inflated value exceeds limit', function (done) {
-      // gzip'd data exceeds 1kb, but deflated below 1kb
       var test = request(this.app).post('/')
       test.set('Content-Encoding', 'gzip')
       test.set('Content-Type', 'application/json')
@@ -725,7 +723,6 @@ function createApp (options) {
   app.use(express.json(options))
 
   app.use(function (err, req, res, next) {
-    // console.log(err)
     res.status(err.status || 500)
     res.send(String(req.headers['x-error-property']
       ? err[req.headers['x-error-property']]

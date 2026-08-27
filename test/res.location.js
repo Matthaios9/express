@@ -106,7 +106,6 @@ describe('res', function(){
         .expect(200, done)
     });
 
-
     if (typeof URL !== 'undefined') {
       it('should accept an instance of URL', function (done) {
         var app = express();
@@ -128,8 +127,6 @@ describe('res', function(){
       var app = express();
       app.use(function (req, res) {
         var host = url.parse(req.query.q, false, true).host;
-        // This is here to show a basic check one might do which
-        // would pass but then the location header would still be bad
         if (host !== domain) {
           res.status(400).end('Bad host: ' + host + ' !== ' + domain);
         }
@@ -140,11 +137,8 @@ describe('res', function(){
 
     function testRequestedRedirect (app, inputUrl, expected, expectedHost, done) {
       return request(app)
-        // Encode uri because old supertest does not and is required
-        // to test older node versions. New supertest doesn't re-encode
-        // so this works in both.
         .get('/?q=' + encodeURIComponent(inputUrl))
-        .expect('') // No body.
+        .expect('')
         .expect(200)
         .expect('Location', expected)
         .end(function (err, res) {
@@ -154,13 +148,11 @@ describe('res', function(){
             return done(err, res);
           }
 
-          // Parse the hosts from the input URL and the Location header
           var inputHost = url.parse(inputUrl, false, true).host;
           var locationHost = url.parse(res.headers['location'], false, true).host;
 
           assert.strictEqual(locationHost, expectedHost);
 
-          // Assert that the hosts are the same
           if (inputHost !== locationHost) {
             return done(new Error('Hosts do not match: ' + inputHost + " !== " +  locationHost));
           }

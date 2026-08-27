@@ -24,7 +24,7 @@ describe('express.urlencoded()', function () {
     var app = express()
 
     app.use(function (req, res, next) {
-      req.headers['content-length'] = '20' // bad length
+      req.headers['content-length'] = '20'
       next()
     })
 

@@ -1,9 +1,5 @@
 'use strict'
 
-/**
- * Module dependencies.
- */
-
 var db = require('../../db');
 
 exports.engine = 'hbs';
@@ -11,12 +7,9 @@ exports.engine = 'hbs';
 exports.before = function(req, res, next){
   var id = req.params.user_id;
   if (!id) return next();
-  // pretend to query a database...
   process.nextTick(function(){
     req.user = db.users[id];
-    // cant find that user
     if (!req.user) return next('route');
-    // found it, move on to the routes
     next();
   });
 };

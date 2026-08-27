@@ -1,4 +1,3 @@
-
 var request = require('supertest')
   , app = require('../../examples/mvc');
 

@@ -723,12 +723,6 @@ describe('express.static()', function () {
     })
   })
 
-  //
-  // NOTE: This is not a real part of the API, but
-  //       over time this has become something users
-  //       are doing, so this will prevent unseen
-  //       regressions around this use-case.
-  //
   describe('when mounted "root" as a file', function () {
     before(function () {
       this.app = express()

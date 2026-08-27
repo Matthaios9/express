@@ -1,14 +1,8 @@
 'use strict'
 
-/**
- * Module dependencies.
- */
-
 var express = require('../../');
 
 var app = module.exports = express();
-
-// Ad-hoc example resource method
 
 app.resource = function(path, obj) {
   this.get(path, obj.index);
@@ -25,8 +19,6 @@ app.resource = function(path, obj) {
   });
 };
 
-// Fake records
-
 var users = [
   { name: 'tj' }
   , { name: 'ciaran' }
@@ -35,8 +27,6 @@ var users = [
   , { name: 'simon' }
   , { name: 'tobi' }
 ];
-
-// Fake controller.
 
 var User = {
   index: function(req, res){
@@ -67,12 +57,6 @@ var User = {
   }
 };
 
-// curl http://localhost:3000/users     -- responds with all users
-// curl http://localhost:3000/users/1   -- responds with user 1
-// curl http://localhost:3000/users/4   -- responds with error
-// curl http://localhost:3000/users/1..3 -- responds with several users
-// curl -X DELETE http://localhost:3000/users/1  -- deletes the user
-
 app.resource('/users', User);
 
 app.get('/', function(req, res){
@@ -88,7 +72,6 @@ app.get('/', function(req, res){
   ].join('\n'));
 });
 
-/* istanbul ignore next */
 if (!module.parent) {
   app.listen(3000);
   console.log('Express started on port 3000');

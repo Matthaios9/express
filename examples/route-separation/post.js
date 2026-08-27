@@ -1,7 +1,5 @@
 'use strict'
 
-// Fake posts database
-
 var posts = [
   { title: 'Foo', body: 'some foo bar' },
   { title: 'Foo bar', body: 'more foo bar' },

@@ -390,7 +390,7 @@ describe('app.router', function () {
       });
 
       app.use('/user/', function (req, res, next) {
-        req.params = 3; // wat?
+        req.params = 3;
         router(req, res, next);
       });
 
@@ -1098,7 +1098,7 @@ describe('app.router', function () {
     var app = express();
 
     app.get('/account/edit', function (req, res, next) {
-      req.user = { id: 12 }; // faux authenticated user
+      req.user = { id: 12 };
       req.url = '/user/' + req.user.id + '/edit';
       next();
     });
@@ -1157,7 +1157,6 @@ describe('app.router', function () {
   })
 
   it('should not use disposed router/middleware', function (done) {
-    // more context: https://github.com/expressjs/express/issues/5743#issuecomment-2277148412
 
     var app = express();
     var router = new express.Router();
