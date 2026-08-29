@@ -1,4 +1,3 @@
-
 Fast, minimalist web framework for [Node.js](https://nodejs.org).
 
 ```js
@@ -15,9 +14,15 @@ app.listen(3000, () => {
 })
 ```
 
-## Installation
+## In plain terms
 
-Express is a web framework for Node.js.
+Every website or app has two sides: what you see (pages, buttons, design)
+and what happens behind the scenes when you interact with it. This is a
+toolkit for building that second part — it listens for requests and decides
+what to send back. It doesn't include a database or any design — you build
+those on top.
+
+## Installation
 
 Before installing, make sure Node.js 18 or higher is installed.
 
@@ -36,7 +41,6 @@ npm install express
 * HTTP helpers
 * REST API support
 * Easy to use and extend
-* High performance
 
 ## Quick Start
 
@@ -70,11 +74,20 @@ http://localhost:3000
 
 ## Philosophy
 
-Express provides simple and flexible tools for building web applications and HTTP APIs with Node.js.
+Express provides simple and flexible tools for building web applications and
+HTTP APIs with Node.js.
 
-It does not force you to use a specific database, ORM, template engine, or application structure. You can choose the tools and architecture that best fit your project.
+It does not force you to use a specific database, ORM, template engine, or
+application structure. You choose the tools and architecture that fit your
+project.
 
 ## Examples
+
+Three example apps are included in `examples/`, each showing one core idea:
+
+* `hello-world` — the smallest possible app
+* `route-middleware` — running checks/logic before a request gets a response
+* `static-files` — serving files (images, css, text) directly
 
 Install the dependencies:
 
@@ -85,14 +98,12 @@ npm install
 Run an example:
 
 ```bash
-node examples/content-negotiation
+node examples/hello-world/index.js
 ```
 
-## Contributing
+Swap the folder name to try the others.
 
-Contributions are welcome, including code improvements, documentation, tests, and bug fixes.
-
-### Running Tests
+## Running Tests
 
 Install the dependencies:
 
@@ -105,3 +116,7 @@ Run the test suite:
 ```bash
 npm test
 ```
+
+## License
+
+MIT — see [LICENSE](./LICENSE).
