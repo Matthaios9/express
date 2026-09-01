@@ -44,9 +44,6 @@
     "type-is": "^2.1.0",
     "vary": "^1.1.2"
   },
-  "devDependencies": {
-    "morgan": "1.11.0"
-  },
   "engines": {
     "node": ">= 18"
   },
@@ -54,8 +51,5 @@
     "Readme.md",
     "index.js",
     "lib/"
-  ],
-  "scripts": {
-    "test": "node --test"
-  }
+  ]
 }

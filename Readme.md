@@ -81,41 +81,6 @@ It does not force you to use a specific database, ORM, template engine, or
 application structure. You choose the tools and architecture that fit your
 project.
 
-## Examples
-
-Three example apps are included in `examples/`, each showing one core idea:
-
-* `hello-world` — the smallest possible app
-* `route-middleware` — running checks/logic before a request gets a response
-* `static-files` — serving files (images, css, text) directly
-
-Install the dependencies:
-
-```bash
-npm install
-```
-
-Run an example:
-
-```bash
-node examples/hello-world/index.js
-```
-
-Swap the folder name to try the others.
-
-## Running Tests
-
-Install the dependencies:
-
-```bash
-npm install
-```
-
-Run the test suite:
-
-```bash
-npm test
-```
 
 ## License
 
